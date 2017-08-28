@@ -5,25 +5,15 @@ nav
       i.material-icons menu
     ul.right.hide-on-med-and-down
       - if user_signed_in?
-        li
-          a.flow-text href='/profile'
-            i.material-icons account_circle
-        li
-          = link_to '<i class="material-icons">power_settings_new</i>'.html_safe, destroy_user_session_path, method: 'delete'
+        li = link_to '<i class="material-icons">account_circle</i>'.html_safe, profile_path
+        li = link_to '<i class="material-icons">power_settings_new</i>'.html_safe, destroy_user_session_path, method: 'delete'
       -else
-        li
-          = link_to 'Register', new_user_registration_path, class: 'flow-text'
-        li
-          = link_to 'Login', new_user_session_path, class: 'flow-text'
+        li = link_to 'Register', new_user_registration_path, class: 'flow-text'
+        li = link_to 'Login', new_user_session_path, class: 'flow-text'
     ul.side-nav#mobile-demo
       - if user_signed_in?
-        li
-          a.flow-text href='/profile'
-            i.material-icons account_circle
-        li
-          = link_to '<i class="material-icons">power_settings_new</i>'.html_safe, destroy_user_session_path, method: 'delete'
+        li = link_to '<i class="material-icons">account_circle</i>'.html_safe, profile_path
+        li = link_to '<i class="material-icons">power_settings_new</i>'.html_safe, destroy_user_session_path, method: 'delete'
       -else
-        li
-          = link_to 'Register', new_user_registration_path, class: 'flow-text'
-        li
-          = link_to 'Login', new_user_session_path, class: 'flow-text'
+        li = link_to 'Register', new_user_registration_path, class: 'flow-text'
+        li = link_to 'Login', new_user_session_path, class: 'flow-text'
