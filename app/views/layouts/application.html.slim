@@ -3,8 +3,18 @@ html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
     title MTGWorkshop
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    == yield
+    div.container
+      header.row.col.s12.m12.l12
+        = render 'layouts/nav'
+      main
+        - if notice
+          p.notice = notice
+        - if alert
+          p.alert = alert
+        == yield

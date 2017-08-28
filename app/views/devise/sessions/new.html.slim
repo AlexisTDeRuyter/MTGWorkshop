@@ -1,0 +1,12 @@
+div.row
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col s12 m12 l6 offset-l3'}) do |f|
+    .field.input-field
+      i.material-icons.prefix email
+      = f.label :email
+      = f.email_field :email, autofocus: true
+    .field.input-field
+      i.material-icons.prefix lock_outline
+      = f.label :password
+      = f.password_field :password, autocomplete: "off"
+    .actions
+      = f.submit "Login", class: 'btn waves-effect waves-light'

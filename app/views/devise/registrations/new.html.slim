@@ -1,0 +1,17 @@
+div.row
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'col s12 m12 l6 offset-l3'}) do |f|
+    = devise_error_messages!
+    .field.input-field
+      i.material-icons.prefix email
+      = f.label :email
+      = f.email_field :email, autofocus: true
+    .field.input-field
+      i.material-icons.prefix lock_outline
+      = f.label :password, 'Password (6 characters minimum)'
+      = f.password_field :password, autocomplete: "off"
+    .field.input-field
+      i.material-icons.prefix.white-text lock_outline
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off"
+    .actions
+      = f.submit "Register", class: 'btn waves-effect waves-light'
