@@ -5,5 +5,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :decks, only: [:create, :show, :destroy]
+
+  resources :cards, only: [:create, :destroy]
+
+  resources :card_types, only: [:show]
+
   root 'welcome#index'
 end

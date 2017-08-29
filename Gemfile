@@ -54,3 +54,5 @@ gem 'pry-rails', group: :development
 gem 'slim-rails'
 
 gem 'devise'
+
+gem 'rest-client'
