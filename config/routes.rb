@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :decks, only: [:create, :show, :destroy]
+  resources :decks, only: [:create, :show, :destroy] do
+    resources :decklists, only: [:create, :destroy]
+  end
 
   resources :cards, only: [:create, :destroy]
 

@@ -1,0 +1,10 @@
+- amount = main ? decklist.amount_main : decklist.amount_side
+tr
+  td.flow-text
+    = link_to amount, card_type_path(decklist.card.card_type)
+  td.flow-text
+    = link_to decklist.card.card_type.name, card_type_path(decklist.card.card_type)
+  td.flow-text
+    = link_to decklist.card.card_type.data['usd'], card_type_path(decklist.card.card_type)
+  td.flow-text
+    = link_to '<i class="material-icons flow-text red-text">delete</i>'.html_safe, deck_decklist_path(decklist), method: 'delete', class: 'delete'

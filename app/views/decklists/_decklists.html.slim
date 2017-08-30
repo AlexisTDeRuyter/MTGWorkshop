@@ -1,0 +1,8 @@
+h2.flow-text = board
+table.highlight.bordered.delete-hover
+  thead: tr
+      th.flow-text Quantity
+      th.flow-text Name
+      th.flow-text colspan='2' Individual Price
+  tbody
+    = render partial: 'decklists/decklist', collection: decklists, locals: { main: (board == 'Mainboard') }

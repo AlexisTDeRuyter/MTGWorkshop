@@ -1,0 +1,7 @@
+tr
+  td.flow-text
+    = link_to deck.name, deck_path(deck)
+  td.flow-text
+    = link_to deck.format, deck_path(deck)
+  td.flow-text
+    = link_to '<i class="material-icons flow-text red-text">delete</i>'.html_safe, deck_path(deck), method: 'delete', class: 'delete'

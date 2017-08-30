@@ -1,0 +1,58 @@
+.white-icon {
+  color: white;
+}
+
+.icon-button-as-link-nav {
+  margin: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.button-as-link-nav {
+  border: none;
+  background: none;
+}
+
+.button-as-link-nav:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.border {
+  border: 2px dashed black;
+}
+
+.margin-top-20 {
+  margin-top: 20px
+}
+
+td a {
+  display: block;
+  color: black;
+}
+
+.margin-right-5 {
+  margin-right: 5px
+}
+
+table.delete-hover > tbody > tr > td > a.delete {
+  visibility: hidden;
+}
+
+table.delete-hover > tbody > tr:hover > td > a.delete {
+  visibility: visible;
+}
+
+@media only screen and (max-width: 992px) {
+  .icon-button-as-link-nav {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .button-as-link-nav {
+    float: left;
+    height: 48px;
+    line-height: 48px;
+    margin: 0 32px 0 0;
+    width: 100%;
+  }
+
+}

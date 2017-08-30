@@ -1,0 +1,46 @@
+div.row: div.col.s12.m12.l12: h1.flow-text
+  = @deck.name
+
+div.row
+  div.col.s12.m12.l6
+    = render partial: 'decklists/decklists', locals: { decklists: @deck.decklists.main, board: 'Mainboard' }
+
+  div.col.s12.m12.l5.card.push-l1
+    div.row
+      div.col.s12.m12.l12
+        h2.flow-text Add a card to the mainboard:
+    div.row
+      - if @main_errors
+        = render partial: 'layouts/errors'
+      = form_tag("/decks/#{@deck.id}/decklists", method: 'post') do
+        = hidden_field(:decklist, :main, value: true)
+        .input-field.col.s12.m12.l5
+          = label_tag(:card_name, "Card Name")
+          = text_field_tag('decklist[card_name]')
+        .input-field.col.s12.m12.l2
+          = label_tag(:quantity, "Quantity")
+          = text_field_tag('decklist[quantity]')
+        .col.s12.m12.l5
+          = button_tag('Add', class: 'btn waves-effect waves-light margin-top-20')
+
+div.row
+  div.col.s12.m12.l6
+    = render partial: 'decklists/decklists', locals: { decklists: @deck.decklists.side, board: 'Sideboard' }
+
+  div.col.s12.m12.l5.card.push-l1
+    div.row
+      div.col.s12.m12.l12
+        h2.flow-text Add a card to the sideboard:
+    div.row
+      - if @side_errors
+        = render partial: 'layouts/errors'
+      = form_tag("/decks/#{@deck.id}/decklists", method: 'post') do
+        = hidden_field(:decklist, :main, value: false)
+        .input-field.col.s12.m12.l5
+          = label_tag(:card_name, "Card Name")
+          = text_field_tag('decklist[card_name]')
+        .input-field.col.s12.m12.l2
+          = label_tag(:quantity, "Quantity")
+          = text_field_tag('decklist[quantity]')
+        .col.s12.m12.l5
+          = button_tag('Add', class: 'btn waves-effect waves-light margin-top-20')

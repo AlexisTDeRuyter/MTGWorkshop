@@ -10,10 +10,8 @@ div.row
         tr
           th.flow-text Name
           th.flow-text colspan='2' Format
-      - if current_user.decks.any?
         tbody
-          - current_user.decks.each do |deck|
-            == slim :'decks/_list_deck', locals: {deck: deck}
+        = render current_user.decks
 
   div.col.s12.m12.l5.card.push-l1
     div.row
@@ -21,14 +19,14 @@ div.row
         h2.flow-text Add a deck:
     div.row
       - if @deck_errors
-        == slim :'_errors'
+        = render partial: 'layouts/errors'
       = form_tag("/decks", method: "post", class: 'add-deck') do
         .input-field.col.s12.m12.l5
           = label_tag(:deck_name, "Deck Name")
-          = text_field_tag(:name)
+          = text_field_tag('deck[name]')
         .input-field.col.s12.m12.l2
           = label_tag(:format, "Format")
-          = text_field_tag(:format)
+          = text_field_tag('deck[format]')
         .col.s12.m12.l5
           = button_tag("Add",  class: 'btn waves-effect waves-light margin-top-20')
 
@@ -46,13 +44,13 @@ div.row
           - current_user.cards.actual.each do |card|
             tr
               td.flow-text
-                a href="/cards/#{card.card_type.id}" = card.quantity
+                = link_to card.quantity, card_type_path(card.card_type)
               td.flow-text
-                a href="/cards/#{card.card_type.id}" = card.card_type.name
+                = link_to card.card_type.name, card_type_path(card.card_type)
               td.flow-text
-                a href="/cards/#{card.card_type.id}" = "$#{card.card_type.data['usd']}"
+                = link_to card.card_type.data['usd'], card_type_path(card.card_type)
               td.flow-text
-                = link_to '<i class="material-icons">delete</i>'.html_safe, card_path(card), method: 'delete'
+                = link_to '<i class="material-icons flow-text red-text">delete</i>'.html_safe, card_path(card), method: 'delete', class: 'delete'
 
   div.col.s12.m12.l5.card.push-l1
     div.row

@@ -1,0 +1,34 @@
+= form_tag("/decks/#{@deck.id}/decklists", method: 'post') do
+  .input-field.col.s12.m12.l5
+    = label_tag(:card_name, "Card Name")
+    = text_field_tag('decklist[card_name]')
+  .input-field.col.s12.m12.l2
+    = label_tag(:quantity, "Quantity")
+    = text_field_tag('decklist[quantity]')
+  .col.s12.m12.l5
+    = button_tag('Add', class: 'btn waves-effect waves-light margin-top-20')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+form action="/decks/#{@deck.id}/main/new" method='post'
+  - if @main_errors
+    = render partial: 'layouts/errors'
+
+    label for='card_name' Card Name
+    input type='text' name='card_deck[card_name]'
+  div
+    label for='quantity' Quantity
+    input type='text' name='card_deck[quantity]'
+  div
+    button. type='submit' name='action' Add
